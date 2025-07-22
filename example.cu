@@ -15,25 +15,6 @@ __host__ __device__ void print_items(Item *items, size_t num_items) {
 
 __device__ __managed__ LootTable table;
 
-// __constant__ ItemType[64] items;
-
-// __constant__ int min_rolls;
-// __constant__ int max_rolls;
-// __constant__ size_t size;
-// __constant__ size_t total_weight;
-// __constant__ ItemType items[64];
-// __constant__ int counts[64];
-// __constant__ int data[512];
-// __constant__ LootProvider providers[64];
-
-//IDEA: a big ass array of constant memory, first element of said memory
-//
-/*
-    first element of the memory tells us how many pools there are, (memory + 1) can
-    be reinterpreded as the first pool! a pool just a bunch of shorts
-*/
-
-// __constant__ short test[10];
 __constant__ short memory[20000];
 
 __global__ void kernel(uint64_t s) {
