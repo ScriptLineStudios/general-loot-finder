@@ -78,13 +78,12 @@ int main() {
     int threads = 512;
     int iters = 10;
 
-    table = parse_table_from_json("tables/ruined_portal.json");
+    table = parse_table_from_json("chests/ruined_portal.json");
     cudaMemcpyToSymbol(memory, &table.size, sizeof(short), 0);
     cudaMemcpyToSymbol(memory, &table.pools[0], sizeof(LootPool), sizeof(short));
     cudaMemcpyToSymbol(memory, &table.pools[1], sizeof(LootPool), sizeof(short) + sizeof(LootPool));
 
     short size = 1 + 2 * (sizeof(LootPool) / sizeof(short));
-    printf("%d\n", size);
 
     struct timeval start, end;
     gettimeofday(&start, NULL);
